@@ -1,8 +1,8 @@
 export default function Main() {
     return (
-        <main className="container">
-            <h2 className="h4 mb-4">Welcome to ReadLit</h2>
-            <p>Your one-stop solution for managing your reading list.</p>
+        <main className="main">
+            <h1 style={{ color: "rgb(250, 229, 204)", margin: "0 auto" }}>Welcome to ReadLit</h1>
+            <h3 style={{ color: "rgb(250, 229, 204)" }}>Your one-stop solution for managing your reading list.</h3>
         </main>
     )
 }
