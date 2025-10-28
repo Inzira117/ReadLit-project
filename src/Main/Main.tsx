@@ -1,3 +1,5 @@
+import Searchbar from "../Searchbar/Searchbar"
+
 export default function Main() {
     return (
         <main className="main">
@@ -7,6 +9,7 @@ export default function Main() {
             <p className="text-light">“Books are the mirrors of the soul.” <span className="span">―Virginia Woolf</span></p>
             <p className="text-light">“A reader lives a thousand lives before he dies. The man who never reads lives only one.” <span className="span">— George R.R. Martin</span></p>
             </div>
+            <Searchbar />
         </main>
     )
 }
