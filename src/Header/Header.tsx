@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark"
-      style={{ backgroundColor: "#5C4033" }} // Chocolate brown
+      style={{ backgroundColor: "#5C4033" }} 
     >
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold fs-3" to="/">

@@ -39,6 +39,11 @@ p {
   line-height: 1.1;
 }
 
+.span {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+
 .navbar-brand {
   font-family: "Dancing Script", cursive;
   color: rgb(250, 229, 204);
