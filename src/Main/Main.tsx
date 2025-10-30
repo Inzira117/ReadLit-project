@@ -1,4 +1,5 @@
 import Searchbar from "../Searchbar/Searchbar"
+import BookCard from "../BookCard/BookCard"
 
 export default function Main() {
     return (
@@ -10,6 +11,7 @@ export default function Main() {
             <p className="text-light">“A reader lives a thousand lives before he dies. The man who never reads lives only one.” <span className="span">— George R.R. Martin</span></p>
             </div>
             <Searchbar />
+            <BookCard title="Book Title" author="Book Author" genre="Book Genre" imageUrl="https://via.placeholder.com/150" rating={4} />
         </main>
     )
 }
