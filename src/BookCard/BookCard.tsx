@@ -31,6 +31,7 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, genre, imageUrl, rat
         className="card h-100 w-50 shadow-sm border-0"
         style={{
           transition: "transform 0.2s ease, box-shadow 0.2s ease",
+          color: "rgb(250, 229, 204)"
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
