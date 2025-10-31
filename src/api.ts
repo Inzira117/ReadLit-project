@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://www.googleapis.com/books/v1", // 👈 this is the BASE URL
+  baseURL: "https://www.googleapis.com/books/v1", 
   headers: {
     "Content-Type": "application/json",
   },
@@ -31,6 +31,12 @@ export const createBook = async (book: Omit<Book, "id">): Promise<Book> => {
 // Example DELETE request
 export const deleteBook = async (id: string): Promise<void> => {
   await api.delete(`/books/${id}`);
+};
+
+// Search books
+export const searchBooks = async (query: string) => {
+  const response = await api.get(`/volumes?q=${query}`);
+  return response.data;
 };
 
 export default api;
