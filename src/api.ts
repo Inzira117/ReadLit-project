@@ -17,9 +17,9 @@ export interface Book {
 }
 
 // Example GET request
-export const getBooks = async (): Promise<Book[]> => {
-  const response = await api.get<Book[]>("/books");
-  return response.data;
+export const getBooks = async (query = "harry potter"): Promise<any[]> => {
+  const response = await api.get(`/volumes?q=${query}`);
+  return response.data.items || [];
 };
 
 // Example POST request
