@@ -23,7 +23,7 @@ export default function BookList() {
           author: item.volumeInfo.authors?.[0] || "Unknown",
           genre: item.volumeInfo.categories?.[0] || "Uncategorized",
           imageUrl: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x195?text=No+Cover",
-          rating: Math.floor(Math.random() * 5) + 1, // random rating for now
+          rating: Math.floor(Math.random() * 5) + 1,
         }));
         setBooks(mapped);
       })
@@ -31,7 +31,7 @@ export default function BookList() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{ backgroundColor: "rgb(250, 229, 204)" }}>
       <div className="row">
         {books.length === 0 ? (
           <p className="text-light">No books found.</p>

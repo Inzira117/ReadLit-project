@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, genre, imageUrl, rat
   return (
     <div className="col-md-4 mb-4">
       <div
-        className="card h-100 w-50 shadow-sm border-0"
+        className="card h-100 w-100 shadow-sm border-0"
         style={{
           transition: "transform 0.2s ease, box-shadow 0.2s ease",
           color: "rgb(250, 229, 204)"
