@@ -16,12 +16,7 @@ export interface Book {
   rating: number;
 }
 
-// Example GET request
-// export const getBooks = async (query = "harry potter"): Promise<any[]> => {
-//   const response = await api.get(`/volumes?q=${query}`);
-//   return response.data.items || [];
-// };
-
+// GET request
 export async function getBooks(query: string) {
   const response = await fetch(
     `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}`
@@ -40,13 +35,13 @@ export async function getBooks(query: string) {
   }));
 }
 
-// Example POST request
+//  POST request
 export const createBook = async (book: Omit<Book, "id">): Promise<Book> => {
   const response = await api.post<Book>("/books", book);
   return response.data;
 };
 
-// Example DELETE request
+// DELETE request
 export const deleteBook = async (id: string): Promise<void> => {
   await api.delete(`/books/${id}`);
 };
