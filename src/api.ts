@@ -17,10 +17,28 @@ export interface Book {
 }
 
 // Example GET request
-export const getBooks = async (query = "harry potter"): Promise<any[]> => {
-  const response = await api.get(`/volumes?q=${query}`);
-  return response.data.items || [];
-};
+// export const getBooks = async (query = "harry potter"): Promise<any[]> => {
+//   const response = await api.get(`/volumes?q=${query}`);
+//   return response.data.items || [];
+// };
+
+export async function getBooks(query: string) {
+  const response = await fetch(
+    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}`
+  );
+  const data = await response.json();
+
+  if (!data.items) return [];
+
+  return data.items.map((item: any) => ({
+    id: item.id,
+    title: item.volumeInfo.title || "No title",
+    author: item.volumeInfo.authors?.[0] || "Unknown",
+    genre: item.volumeInfo.categories?.[0] || "Uncategorized",
+    imageUrl: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x195?text=No+Cover",
+    rating: Math.floor(Math.random() * 5) + 1,
+  }));
+}
 
 // Example POST request
 export const createBook = async (book: Omit<Book, "id">): Promise<Book> => {
