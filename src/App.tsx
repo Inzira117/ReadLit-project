@@ -9,7 +9,8 @@ const App: React.FC = () => {
   
 
   return (
-    <div className="w-100 min-vh-100 bg-light">
+    <div>
+      {/* <div className="w-100 min-vh-100 bg-light"> */}
       <Header />
       <Main />
       <Footer />
