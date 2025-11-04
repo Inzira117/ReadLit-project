@@ -31,7 +31,7 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, genre, imageUrl, rat
         className="card h-100 w-100 shadow-sm border-0"
         style={{
           transition: "transform 0.2s ease, box-shadow 0.2s ease",
-          color: "rgb(250, 229, 204)"
+          cursor: "pointer",
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
@@ -49,9 +49,9 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, genre, imageUrl, rat
           style={{ height: "250px", objectFit: "cover" }}
         />
         <div className="card-body d-flex flex-column">
-          <h3 className="card-title mb-2"><strong>Title:</strong> {title}</h3>
-          <h4 className="card-text mb-1"><strong>Author:</strong> {author}</h4>
-          <h4 className="card-text"><strong>Genre:</strong> {genre}</h4>
+          <h3 className="card-title mb-2">{title}</h3>
+          <h4 className="card-text mb-1">{author}</h4>
+          <h4 className="card-text">{genre}</h4>
 
           <div className="mt-auto d-flex align-items-center gap-1">
             {renderStars()}
