@@ -41,6 +41,12 @@ export default function Header() {
                 My Books
               </Link>
             </li>
+            <button
+              className="btn btn-outline-light ms-3"
+              type="button"
+            >
+              Sign in
+            </button>
           </ul>
         </div>
       </div>
