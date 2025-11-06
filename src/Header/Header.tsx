@@ -1,4 +1,4 @@
-
+import AuthForm from "../AuthForm/AuthForm";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -46,6 +46,7 @@ export default function Header() {
               type="button"
             >
               Sign in
+              <AuthForm />
             </button>
           </ul>
         </div>
