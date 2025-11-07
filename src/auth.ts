@@ -1,7 +1,7 @@
 export interface User {
-    id: number;
-    username: string;
+    username: string,
     email: string;
+    password: string;
 }
 
 const USERS_KEY = "users";
@@ -14,15 +14,18 @@ const getStoredUsers = (): User[] => {
 };
 
 // Register a new user
-export const registerUser = (email: string, password: string): string => {
+export const registerUser = (
+  username: string,
+  email: string,
+  password: string
+): string => {
   const users = getStoredUsers();
 
-  // check if user exists
   if (users.find((u) => u.email === email)) {
     throw new Error("User already exists");
   }
 
-  const newUser = { email, password };
+  const newUser: User = { username, email, password };
   users.push(newUser);
 
   localStorage.setItem(USERS_KEY, JSON.stringify(users));

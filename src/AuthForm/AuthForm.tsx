@@ -2,6 +2,7 @@ import { useState } from "react";
 import { registerUser, loginUser, getCurrentUser, logoutUser } from "../auth";
 
 export default function AuthForm() {
+   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
@@ -13,7 +14,7 @@ export default function AuthForm() {
     try {
       const response = isLogin
         ? loginUser(email, password)
-        : registerUser(email, password);
+        : registerUser(username, email, password);
       setMessage(response);
       setCurrentUser(getCurrentUser());
     } catch (err: any) {
@@ -41,6 +42,13 @@ export default function AuthForm() {
     <div className="container mt-5 text-light">
       <h2>{isLogin ? "Login" : "Register"}</h2>
       <form onSubmit={handleSubmit} className="mt-3">
+        <input
+          type="username"
+          className="form-control mb-3"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <input
           type="email"
           className="form-control mb-3"
