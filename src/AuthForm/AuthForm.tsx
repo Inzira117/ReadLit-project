@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { registerUser, loginUser, getCurrentUser, logoutUser } from "../auth";
 
-export default function AuthForm() {
+interface AuthFormProps {
+  onAuthSuccess?: () => void;
+}
+
+
+export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
    const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,7 +14,7 @@ export default function AuthForm() {
   const [message, setMessage] = useState("");
   const [currentUser, setCurrentUser] = useState(getCurrentUser());
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = isLogin
@@ -17,15 +22,18 @@ export default function AuthForm() {
         : registerUser(username, email, password);
       setMessage(response);
       setCurrentUser(getCurrentUser());
+      onAuthSuccess?.(); 
     } catch (err: any) {
       setMessage(err.message);
     }
   };
 
+
   const handleLogout = () => {
     logoutUser();
     setCurrentUser(null);
   };
+
 
   if (currentUser) {
     return (
@@ -82,3 +90,6 @@ export default function AuthForm() {
     </div>
   );
 }
+
+
+
