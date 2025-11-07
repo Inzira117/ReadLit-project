@@ -30,7 +30,7 @@ export default function AuthForm() {
   if (currentUser) {
     return (
       <div className="container mt-5 text-light text-center">
-        <h3>Welcome, {currentUser.email}</h3>
+        <h3>Welcome, {currentUser.username}</h3>
         <button className="btn btn-warning mt-3" onClick={handleLogout}>
           Logout
         </button>
