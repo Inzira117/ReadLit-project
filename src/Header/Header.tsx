@@ -45,11 +45,11 @@ export default function Header() {
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto align-items-center">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Genres
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/to-read">
                   To Read
