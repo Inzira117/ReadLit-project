@@ -2,11 +2,10 @@ import { useState } from "react";
 import { registerUser, loginUser, getCurrentUser, logoutUser } from "../auth";
 
 interface AuthFormProps {
-  onAuthSuccess?: () => void;
+  onLogin: (userData: { name: string }) => void;
 }
 
-
-export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
+export default function AuthForm({ onLogin }: AuthFormProps) {
    const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +21,7 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
         : registerUser(username, email, password);
       setMessage(response);
       setCurrentUser(getCurrentUser());
-      onAuthSuccess?.(); 
+      onLogin({ name: username });
     } catch (err: any) {
       setMessage(err.message);
     }

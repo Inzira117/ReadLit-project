@@ -2,12 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthForm from "../AuthForm/AuthForm";
 
+interface User {
+  name: string;
+}
+
 export default function Header() {
   // Simulated authentication state
-  const [user, setUser] = useState(null);
+ const [user, setUser] = useState<User | null>(null);
   const [showAuth, setShowAuth] = useState(false);
 
-  const handleLogin = (userData) => {
+  const handleLogin = (userData: User) => {
     setUser(userData);
     setShowAuth(false);
   };
