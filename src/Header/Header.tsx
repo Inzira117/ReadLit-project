@@ -1,10 +1,20 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthForm from "../AuthForm/AuthForm";
 
 export default function Header() {
+  // Simulated authentication state
+  const [user, setUser] = useState(null);
   const [showAuth, setShowAuth] = useState(false);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+    setShowAuth(false);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
 
   return (
     <>
@@ -47,13 +57,28 @@ export default function Header() {
                 </Link>
               </li>
 
-              <button
-                className="btn btn-outline-light ms-3"
-                type="button"
-                onClick={() => setShowAuth(true)}
-              >
-                Sign in
-              </button>
+              {user ? (
+                <>
+                  <li className="nav-item text-light ms-3">
+                    Hello, <strong>{user.name}</strong>
+                  </li>
+                  <button
+                    className="btn btn-outline-light ms-3"
+                    type="button"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="btn btn-outline-light ms-3"
+                  type="button"
+                  onClick={() => setShowAuth(true)}
+                >
+                  Sign in
+                </button>
+              )}
             </ul>
           </div>
         </div>
@@ -75,7 +100,7 @@ export default function Header() {
                 className="btn-close btn-close-white ms-auto"
                 onClick={() => setShowAuth(false)}
               ></button>
-              <AuthForm />
+              <AuthForm onLogin={handleLogin} />
             </div>
           </div>
         </div>
